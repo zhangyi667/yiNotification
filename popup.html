@@ -12,7 +12,9 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
-
+      #alert {
+        display: none;
+      }
     </style>
 
     <!--
@@ -21,11 +23,34 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-    <script src="popup.js"></script>
+   
   </head>
   <body>
-    <div >This is statue</div>
-    
+    <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Notification Content</label>
+          <div class="input-icon">
+            <i class="fa fa-user margin-top-15"></i>
+              <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" value="" required="" placeholder="Message" name="message" id="message">
+      </div>
+    </div>
+    <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Notification Frequency</label>
+            <div class="input-icon">
+                <i class="fa fa-lock  margin-top-15"></i>
+                <input class="form-control form-control-solid placeholder-no-fix" id="frequency" placeholder="Seconds" required="" name="frequency">
+            </div>
+    </div>
+
+    <div id="alert">
+      <span>
+        Frequency must be a number.
+      </span>
+    </div>
+
+
+    <button  class="btn btn-success uppercase" id="clickOK">OK</button>
+  <script src="popup.js"></script>
   </body>
 </html>
 
